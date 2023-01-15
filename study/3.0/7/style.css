@@ -1,0 +1,25 @@
+@import "../../reset.css";
+
+body {
+  background-color: wheat;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.title span {
+  color: blue;
+}
+
+.title .clicked {
+  color : tomato;
+}
+
+.sexy-font {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
