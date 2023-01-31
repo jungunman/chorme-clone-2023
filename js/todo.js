@@ -18,12 +18,9 @@ function deleteTodo(event) {
   const deleteTarget = JSON.parse(localStorage.getItem(TO_DO_LIST_KEY));
 
   //해당 타겟 삭제
-  let filteredTarget = deleteTarget.filter(
-    (element) => String(element.id) !== deleteLi.id
-  );
+  let arrToDo = deleteTarget.filter((todo) => String(todo.id) !== deleteLi.id);
 
-  arrToDo = filteredTarget;
-  localStorage.setItem(TO_DO_LIST_KEY, JSON.stringify(filteredTarget));
+  localStorage.setItem(TO_DO_LIST_KEY, JSON.stringify(arrToDo));
   //버튼만 사라지는 것을 볼 수 있다. li 전체를 삭제하려면!? 위의 코드와 같이
   // const deleteLi = event.target;
 }
