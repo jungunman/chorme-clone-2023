@@ -8,14 +8,18 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <!--인사 -->
-    <h1 class="greeting">Welcome-Chrome</h1>
-    <h1 class="greeting-user hidden"></h1>
     <!-- 날씨 -->
     <div class="weather">
       <span></span>
       <span></span>
     </div>
+
+    <!--시간-->
+    <h2 class="clock">00:00:00</h2>
+
+    <!--인사 -->
+    <h1 class="greeting">Welcome-Chrome</h1>
+    <h1 class="greeting-user hidden"></h1>
     <!--로그인 form-->
     <form action="" class="login-form">
       <input
@@ -28,11 +32,8 @@
       <input type="submit" value="로그인" />
     </form>
 
-    <!--시간-->
-    <h2 class="clock">00:00:00</h2>
-
     <!--오늘 할 일-->
-    <form action="" class="todo-form">
+    <form action="" class="todo-form hidden">
       <input type="text" placeholder="오늘 할 일" maxlength="30" required />
     </form>
     <ul class="todo-list"></ul>
@@ -50,5 +51,9 @@
     <script src="./js/todo.js"></script>
     <script src="./js/login.js"></script>
     <script src="./js/weather.js"></script>
+    <script
+      src="https://kit.fontawesome.com/2506c7d869.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

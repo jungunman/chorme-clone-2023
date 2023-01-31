@@ -1,0 +1,19 @@
+.login-form {
+  margin: 20px 0px;
+}
+
+.login-form input:first-child {
+  border: none;
+  border-radius: 10px;
+  height: 20px;
+  padding: 5px 0px;
+  padding-left: 10px;
+}
+
+.login-form input:last-child {
+  font-size: 13px;
+  background-color: wheat;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+}

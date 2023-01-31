@@ -1,0 +1,30 @@
+.todo-form {
+  margin: 20px;
+}
+
+.todo-form input {
+  border: none;
+  border-radius: 10px;
+  height: 20px;
+  padding: 5px 5px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.todo-list {
+  width: 250px;
+}
+.todo-list li {
+  margin: 3px;
+}
+
+.todo-list li button {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  background-color: red;
+}

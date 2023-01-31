@@ -14,15 +14,31 @@ function saveTodo() {
 function deleteTodo(event) {
   //해당 TodoList 삭제하기
   const deleteLi = event.target.parentElement;
-  deleteLi.remove();
-  const deleteTarget = JSON.parse(localStorage.getItem(TO_DO_LIST_KEY));
+  const iconTag = event.target.nodeName;
+  console.dir(deleteLi.parentElement);
+  if (deleteLi.nodeName === "LI") {
+    deleteLi.remove();
+    const deleteTarget = JSON.parse(localStorage.getItem(TO_DO_LIST_KEY));
 
-  //해당 타겟 삭제
-  let arrToDo = deleteTarget.filter((todo) => String(todo.id) !== deleteLi.id);
+    //해당 타겟 삭제
+    let arrToDo = deleteTarget.filter(
+      (todo) => String(todo.id) !== deleteLi.id
+    );
 
-  localStorage.setItem(TO_DO_LIST_KEY, JSON.stringify(arrToDo));
-  //버튼만 사라지는 것을 볼 수 있다. li 전체를 삭제하려면!? 위의 코드와 같이
-  // const deleteLi = event.target;
+    localStorage.setItem(TO_DO_LIST_KEY, JSON.stringify(arrToDo));
+    //버튼만 사라지는 것을 볼 수 있다. li 전체를 삭제하려면!? 위의 코드와 같이
+    // const deleteLi = event.target;
+  } else if (iconTag === "I") {
+    deleteLi.parentElement.remove();
+    const deleteTarget = JSON.parse(localStorage.getItem(TO_DO_LIST_KEY));
+
+    //해당 타겟 삭제
+    let arrToDo = deleteTarget.filter(
+      (todo) => String(todo.id) !== deleteLi.parentElement.id
+    );
+
+    localStorage.setItem(TO_DO_LIST_KEY, JSON.stringify(arrToDo));
+  }
 }
 
 function paintTodo(newToDo) {
@@ -31,13 +47,16 @@ function paintTodo(newToDo) {
   const span = document.createElement("span");
   span.innerText = newToDo.todo;
   const button = document.createElement("button");
-  button.innerText = "X";
+  const xIcon = document.createElement("i");
+  xIcon.classList.add("fas");
+  xIcon.classList.add("fa-times");
   //삭제 이벤트
   button.addEventListener("click", deleteTodo);
 
   //
-  li.appendChild(span);
   li.appendChild(button);
+  button.appendChild(xIcon);
+  li.appendChild(span);
   toDoList.appendChild(li);
 }
 

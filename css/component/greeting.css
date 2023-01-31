@@ -1,0 +1,11 @@
+.greeting,
+.greeting-user {
+  margin-top: 50px;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.greeting-user {
+  margin-top: 20px;
+  font-size: 30px;
+}
