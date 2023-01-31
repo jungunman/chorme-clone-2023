@@ -19,8 +19,9 @@ function deleteTodo(event) {
 
   //해당 타겟 삭제
   let filteredTarget = deleteTarget.filter(
-    (element) => element !== event.target.previousSibling.innerText
+    (element) => String(element.id) !== deleteLi.id
   );
+
   arrToDo = filteredTarget;
   localStorage.setItem(TO_DO_LIST_KEY, JSON.stringify(filteredTarget));
   //버튼만 사라지는 것을 볼 수 있다. li 전체를 삭제하려면!? 위의 코드와 같이
@@ -29,8 +30,9 @@ function deleteTodo(event) {
 
 function paintTodo(newToDo) {
   const li = document.createElement("li");
+  li.id = newToDo.id;
   const span = document.createElement("span");
-  span.innerText = newToDo;
+  span.innerText = newToDo.todo;
   const button = document.createElement("button");
   button.innerText = "X";
   //삭제 이벤트
@@ -44,7 +46,10 @@ function paintTodo(newToDo) {
 
 function handleToDoSubmit(event) {
   event.preventDefault();
-  const newToDo = toDoInputText.value;
+  const newToDo = {
+    id: Date.now(),
+    todo: toDoInputText.value,
+  };
   //input 창 값 초기화
   toDoInputText.value = "";
   arrToDo.push(newToDo);
